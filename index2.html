@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me DOM Project</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        line-height: 1.2;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        background-color: #000000;
+        padding: 10px;
+      }
+
+      header a {
+        color: white;
+        text-decoration: none;
+      }
+
+      header > ul {
+        margin: 0;
+        list-style-type: none;
+      }
+
+      header > ul > li {
+        float: left;
+        margin-right: 10px;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      article {
+        margin-bottom: 60px;
+      }
+
+      .cta {
+        background-color: #dddee1;
+        padding: 10px 20px;
+      }
+
+      .post-headline {
+        text-decoration: none;
+        color: #0964c0;
+      }
+
+      .post-footer {
+        display: flex;
+        padding: 2px 5px;
+        background-color: #f39131;
+      }
+
+      .post-footer > div {
+        color: white;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Build website
+      var dummyText =
+        "";
+      buildPage();
+
+      function buildPage() {
+        var root = document.getElementById("root");
+        root.appendChild(buildHeader());
+        root.appendChild(buildContent());
+      }
+
+      function buildHeader() {
+        var header = document.createElement("header");
+        header.appendChild(buildLogo());
+        header.appendChild(buildNav());
+        return header;
+      }
+
+      function buildLogo() {
+        var logo = document.createElement("h1");
+        logo.textContent = "About Me";
+        return logo;
+      }
+
+      function buildNav() {
+        var unorderedList = document.createElement("ul");
+
+        ["", "", ""].forEach(item => {
+          var li = document.createElement("li");
+          var link = document.createElement("a");
+          link.setAttribute("href", "#");
+          link.textContent = item;
+          li.appendChild(link);
+          unorderedList.appendChild(li);
+        });
+
+        return unorderedList;
+      }
+
+      function buildContent() {
+        var content = document.createElement("main");
+        content.appendChild(buildCta());
+        var post1 = buildPost("Likes");
+        var post2 = buildPost("Dislikes");
+        content.appendChild(post1);
+        content.appendChild(post2);
+        return content;
+      }
+
+      function buildCta() {
+        var cta = document.createElement("div");
+        cta.setAttribute("class", "cta");
+        var heading = document.createElement("h2");
+        heading.textContent = "Description";
+        cta.appendChild(heading);
+        var desc = document.createElement("p");
+        desc.textContent = dummyText;
+        cta.appendChild(desc);
+        return cta;
+      }
+
+      function buildPost(headline) {
+        var post = document.createElement("article");
+        var headline = buildPostHeadline(headline);
+        post.appendChild(headline);
+        var desc = document.createElement("p");
+        desc.textContent = dummyText;
+        post.appendChild(desc);
+        var footer = buildPostFooter();
+        post.appendChild(footer);
+        return post;
+      }
+
+      function buildPostHeadline(headline) {
+        var element = document.createElement("h3");
+        var link = document.createElement("a");
+        link.setAttribute("href", "#");
+        link.setAttribute("class", "post-headline");
+        link.textContent = headline;
+        element.appendChild(link);
+        return element;
+      }
+
+      function buildPostFooter() {
+        var footer = document.createElement("footer");
+        footer.setAttribute("class", "post-footer");
+
+        var comments = document.createElement("div");
+        comments.textContent = `${getRandomNumber()} comments`;
+        footer.appendChild(comments);
+
+        var likes = document.createElement("div");
+        likes.textContent = `${getRandomNumber()} likes`;
+        footer.appendChild(likes);
+        return footer;
+      }
+
+      function getRandomNumber() {
+        return Math.floor(Math.random() * 100);
+      }
+    </script>
+  </body>
+</html>
