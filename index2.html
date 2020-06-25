@@ -83,37 +83,37 @@
     <div id="root"></div>
     <script>
       // Build website
-      var aboutMeBio =
+      let aboutMeBio =
         "Ivan Davis was born in Los Angeles California, becoming the first in his family’s history, to be born in the United States. A descendant of proud Panamanian parents, Ivan was considered to be an inquisitive child. Ivan’s parents believe his first words were, Why and Why Not? This curiosity led to Ivan’s “geeky” beginnings, for which at the tender age of 8, his father began teaching him how to build computers from scratch.";
       
       buildPage();
       function buildPage() {
-        var root = document.getElementById("root");
+        let root = document.getElementById("root");
         root.appendChild(buildHeader());
         root.appendChild(buildContent());        
       }
 
       function image() {
-        var image = document.createElement("img");
+        let image = document.createElement("img");
       }
       function buildHeader() {
-        var header = document.createElement("header");
+        let header = document.createElement("header");
         header.appendChild(buildLogo());
         return header;
       }
 
       function buildLogo() {
-        var logo = document.createElement("h1");
+        let logo = document.createElement("h1");
         logo.textContent = "About Me";
         return logo;
       }
 
       function buildNav() {
-        var unorderedList = document.createElement("ul");
+        let unorderedList = document.createElement("ul");
 
         ["Music", "Tech", "Architecture"].forEach(item => {
-          var li = document.createElement("li");
-          var link = document.createElement("a");
+          let li = document.createElement("li");
+          let link = document.createElement("a");
         //   link.setAttribute("href", "#");
           link.textContent = item;
           li.appendChild(link);
@@ -124,11 +124,11 @@
       }
 
       function buildNav2() {
-        var unorderedList = document.createElement("ul");
+        let unorderedList = document.createElement("ul");
 
         ["Ketchup", "Heights", "Deviled Eggs"].forEach(item => {
-          var li = document.createElement("li");
-          var link = document.createElement("a");
+          let li = document.createElement("li");
+          let link = document.createElement("a");
         //   link.setAttribute("href", "#");
           link.textContent = item;
           li.appendChild(link);
@@ -139,11 +139,11 @@
       }
 
       function buildContent() {
-        var content = document.createElement("main");
+        let content = document.createElement("main");
         content.appendChild(buildCta());
-        var post1 = buildPost("Likes");
+        let post1 = buildPost("Likes");
         post1.appendChild(buildNav())
-        var post2 = buildPost("Dislikes");
+        let post2 = buildPost("Dislikes");
         post2.appendChild(buildNav2())
         content.appendChild(post1);
         content.appendChild(post2);
@@ -151,30 +151,30 @@
       }
 
       function buildCta() {
-        var cta = document.createElement("div");
+        let cta = document.createElement("div");
         cta.setAttribute("class", "cta");
-        var heading = document.createElement("h2");
+        let heading = document.createElement("h2");
         heading.textContent = "Description";
         cta.appendChild(heading);
-        var desc = document.createElement("p");
+        let desc = document.createElement("p");
         desc.textContent = aboutMeBio;
         cta.appendChild(desc);
         return cta;
       }
 
       function buildPost(headline) {
-        var post = document.createElement("article");
+        let post = document.createElement("article");
         var headline = buildPostHeadline(headline);
         post.appendChild(headline);
-        var desc = document.createElement("p");
-        var footer = buildPostFooter();
+        let desc = document.createElement("p");
+        let footer = buildPostFooter();
         post.appendChild(footer);
         return post;
       }
 
       function buildPostHeadline(headline) {
-        var element = document.createElement("h3");
-        var link = document.createElement("a");
+        let element = document.createElement("h3");
+        let link = document.createElement("a");
         link.setAttribute("href", "#");
         link.setAttribute("class", "post-headline");
         link.textContent = headline;
@@ -183,14 +183,14 @@
       }
 
       function buildPostFooter() {
-        var footer = document.createElement("footer");
+        let footer = document.createElement("footer");
         footer.setAttribute("class", "post-footer");
 
-        var comments = document.createElement("div");
+        let comments = document.createElement("div");
         comments.textContent = ``;
         footer.appendChild(comments);
 
-        var likes = document.createElement("div");
+        let likes = document.createElement("div");
         likes.textContent = ``;
         footer.appendChild(likes);
         return footer;
