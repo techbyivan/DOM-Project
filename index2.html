@@ -59,13 +59,13 @@
 
       .post-headline {
         text-decoration: none;
-        color: #0964c0;
+        color: #ff1bec;
       }
 
       .post-footer {
         display: flex;
         padding: 2px 5px;
-        background-color: #f39131;
+        background-color: #000000;
       }
 
       .post-footer > div {
@@ -79,19 +79,21 @@
     <script>
       // Build website
       var dummyText =
-        "";
+        // "asdfasdfasdfasdfasdfasdf"; 
+        
       buildPage();
 
       function buildPage() {
         var root = document.getElementById("root");
         root.appendChild(buildHeader());
         root.appendChild(buildContent());
+    
+        
       }
 
       function buildHeader() {
         var header = document.createElement("header");
         header.appendChild(buildLogo());
-        header.appendChild(buildNav());
         return header;
       }
 
@@ -104,7 +106,22 @@
       function buildNav() {
         var unorderedList = document.createElement("ul");
 
-        ["", "", ""].forEach(item => {
+        ["a", "b", "c"].forEach(item => {
+          var li = document.createElement("li");
+          var link = document.createElement("a");
+          link.setAttribute("href", "#");
+          link.textContent = item;
+          li.appendChild(link);
+          unorderedList.appendChild(li);
+        });
+
+        return unorderedList;
+      }
+
+      function buildNav2() {
+        var unorderedList = document.createElement("ul");
+
+        ["e", "f", "g"].forEach(item => {
           var li = document.createElement("li");
           var link = document.createElement("a");
           link.setAttribute("href", "#");
@@ -120,7 +137,9 @@
         var content = document.createElement("main");
         content.appendChild(buildCta());
         var post1 = buildPost("Likes");
+        post1.appendChild(buildNav())
         var post2 = buildPost("Dislikes");
+        post2.appendChild(buildNav2())
         content.appendChild(post1);
         content.appendChild(post2);
         return content;
@@ -165,11 +184,11 @@
         footer.setAttribute("class", "post-footer");
 
         var comments = document.createElement("div");
-        comments.textContent = `${getRandomNumber()} comments`;
+        comments.textContent = ``;
         footer.appendChild(comments);
 
         var likes = document.createElement("div");
-        likes.textContent = `${getRandomNumber()} likes`;
+        likes.textContent = ``;
         footer.appendChild(likes);
         return footer;
       }
