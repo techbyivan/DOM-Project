@@ -9,7 +9,11 @@
       * {
         box-sizing: border-box;
       }
-
+      img {
+        display: inline;
+        width: 300px;
+        height: 300px;
+      }
       body {
         margin: 0;
         font-family: sans-serif;
@@ -26,7 +30,7 @@
         align-items: center;
         color: white;
         background-color: #000000;
-        padding: 10px;
+        padding: 20px;
       }
 
       header a {
@@ -53,13 +57,14 @@
       }
 
       .cta {
-        background-color: #dddee1;
+        background-color: #bbfff0;
         padding: 10px 20px;
+        border-radius: 10px;
       }
 
       .post-headline {
         text-decoration: none;
-        color: #ff1bec;
+        color: #000000;
       }
 
       .post-footer {
@@ -78,19 +83,19 @@
     <div id="root"></div>
     <script>
       // Build website
-      var dummyText =
-        // "asdfasdfasdfasdfasdfasdf"; 
-        
+      var aboutMeBio =
+        "Ivan Davis was born in Los Angeles California, becoming the first in his family’s history, to be born in the United States. A descendant of proud Panamanian parents, Ivan was considered to be an inquisitive child. Ivan’s parents believe his first words were, Why and Why Not? This curiosity led to Ivan’s “geeky” beginnings, for which at the tender age of 8, his father began teaching him how to build computers from scratch.";
+      
       buildPage();
-
       function buildPage() {
         var root = document.getElementById("root");
         root.appendChild(buildHeader());
-        root.appendChild(buildContent());
-    
-        
+        root.appendChild(buildContent());        
       }
 
+      function image() {
+        var image = document.createElement("img");
+      }
       function buildHeader() {
         var header = document.createElement("header");
         header.appendChild(buildLogo());
@@ -106,10 +111,10 @@
       function buildNav() {
         var unorderedList = document.createElement("ul");
 
-        ["a", "b", "c"].forEach(item => {
+        ["Music", "Tech", "Architecture"].forEach(item => {
           var li = document.createElement("li");
           var link = document.createElement("a");
-          link.setAttribute("href", "#");
+        //   link.setAttribute("href", "#");
           link.textContent = item;
           li.appendChild(link);
           unorderedList.appendChild(li);
@@ -121,10 +126,10 @@
       function buildNav2() {
         var unorderedList = document.createElement("ul");
 
-        ["e", "f", "g"].forEach(item => {
+        ["Ketchup", "Heights", "Deviled Eggs"].forEach(item => {
           var li = document.createElement("li");
           var link = document.createElement("a");
-          link.setAttribute("href", "#");
+        //   link.setAttribute("href", "#");
           link.textContent = item;
           li.appendChild(link);
           unorderedList.appendChild(li);
@@ -152,7 +157,7 @@
         heading.textContent = "Description";
         cta.appendChild(heading);
         var desc = document.createElement("p");
-        desc.textContent = dummyText;
+        desc.textContent = aboutMeBio;
         cta.appendChild(desc);
         return cta;
       }
@@ -162,8 +167,6 @@
         var headline = buildPostHeadline(headline);
         post.appendChild(headline);
         var desc = document.createElement("p");
-        desc.textContent = dummyText;
-        post.appendChild(desc);
         var footer = buildPostFooter();
         post.appendChild(footer);
         return post;
@@ -199,3 +202,7 @@
     </script>
   </body>
 </html>
+
+
+
+
